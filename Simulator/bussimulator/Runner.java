@@ -110,8 +110,8 @@ public class Runner implements Runnable {
 		addBus(3, bus31);
 		addBus(5, bus32);
 		addBus(14, bus33);
-		addBus(16, bus34);	
-		addBus(13, bus35);
+		//addBus(16, bus34);
+		//addBus(13, bus35);
 		return Collections.min(busStart.keySet());
 	}
 
