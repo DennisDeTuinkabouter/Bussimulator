@@ -31,7 +31,7 @@ public class Runner implements Runnable {
 		return (!busStart.isEmpty()) ? Collections.min(busStart.keySet()) : -1;
 	}
 
-	public static void moveBussen(int nu){
+	private static void moveBussen(int nu){
 		Iterator<Bus> itr = actieveBussen.iterator();
 		while (itr.hasNext()) {
 			Bus bus = itr.next();
@@ -43,7 +43,7 @@ public class Runner implements Runnable {
 		}		
 	}
 
-	public static void sendETAs(int nu){
+	private static void sendETAs(int nu){
 		Iterator<Bus> itr = actieveBussen.iterator();
 		while (itr.hasNext()) {
 			Bus bus = itr.next();

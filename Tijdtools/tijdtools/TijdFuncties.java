@@ -77,7 +77,7 @@ public class TijdFuncties {
     	try {
     		HTTPFuncties httpFuncties = new HTTPFuncties();
 			String result = httpFuncties.executeGet("xml");
-			System.out.println(result);
+			//System.out.println(result);
 	        XStream xstream = new XStream();
 	        xstream.alias("Tijd", Tijd.class);
 	        Tijd tijd=(Tijd)xstream.fromXML(result);

@@ -33,6 +33,7 @@ public class ArrivaLogger implements Runnable{
 					TextMessage textMessage = (TextMessage) message;
 					String text = textMessage.getText();
 					newMessage=true;
+					System.out.println(text);
 					XStream xstream = new XStream();
 					xstream.alias("Bericht", Bericht.class);
 					xstream.alias("ETA", ETA.class);

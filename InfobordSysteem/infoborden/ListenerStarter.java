@@ -23,17 +23,16 @@ public  class ListenerStarter implements Runnable, ExceptionListener {
         try {
             ActiveMQConnectionFactory connectionFactory = 
             		new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_BROKER_URL);
-			TopicConnection connection = connectionFactory.createTopicConnection();
+			Connection connection = connectionFactory.createTopicConnection();
 			connection.start();
 			connection.setExceptionListener(this);
-			TopicSession session = connection.createTopicSession(false,Session.AUTO_ACKNOWLEDGE);
+			Session session = connection.createSession(false,Session.AUTO_ACKNOWLEDGE);
 			Topic destination = session.createTopic("Infobord");
 			MessageConsumer consumer = session.createConsumer(destination, selector);
 			System.out.println("Produce, wait, consume"+ selector);
-			//QueueListener queueListener = new QueueListener(selector, infobord, berichten);
-			TopicRequestor topicRequestor = new TopicRequestor(session,destination);
-			//queueListener.onMessage(consumer.receive());
-			topicRequestor.request(consumer.receive());
+			QueueListener queueListener = new QueueListener(selector, infobord, berichten);
+			queueListener.onMessage(consumer.receive());
+			//consumer.setMessageListener(queueListener);
 
 //			TODO maak de connection aan
 //          Connection connection = ?????;
